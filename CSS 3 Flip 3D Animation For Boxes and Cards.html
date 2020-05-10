@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS3 Flip 3D Animation</title>
+    <!-- https://www.youtube.com/watch?v=dvywptskcjg&list=PLEXedA_rYzg-XTSmDHShP5wga6LRz8EFl -->
+    <style>
+        body{
+            -webkit-perspective: 800px;
+        }
+        body{
+            padding-top:50px;
+            background-image:url(./images/galaxy.jpg);
+            background-size: cover;
+        }
+        .wrap{
+            postion: relative;
+            margin: 0 auto;
+            width: 250px;
+            height: 350px;
+            cursor: pointer;
+        }
+        .wrap div{
+            width:100%;
+            height:100%;
+            border-radius: 10px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color:white;
+            text-align: center;
+            line-height: 350px;
+            position: absolute;
+            -webkit-backface-visibility: hidden;
+        }
+        .side-a{
+            background-image: url(https://placeimg.com/250/350/any?1);
+            background-size:cover;
+            z-index: 100;
+        }
+        .side-b{
+            background-image: url(https://placeimg.com/250/350/any?2);
+            background-size:cover;
+            -webkit-transform: rotateY(-180deg);
+        }
+        .wrap{
+            transition: -webkit-transform 1s ease-in;
+            -webkit-transform-style: preserve-3d;
+        }
+        .wrap:hover{
+            -webkit-transform:rotateY(-1turn);
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="side-a"></div>
+        <div class="side-b"></div>
+    </div>
+</body>
+</html>
