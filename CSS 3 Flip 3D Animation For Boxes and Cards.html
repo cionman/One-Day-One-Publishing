@@ -5,13 +5,22 @@
     <title>CSS3 Flip 3D Animation</title>
     <!-- https://www.youtube.com/watch?v=dvywptskcjg&list=PLEXedA_rYzg-XTSmDHShP5wga6LRz8EFl -->
     <style>
+
         body{
-            -webkit-perspective: 800px;
+            perspective: 800px;
+            /*
+            3 차원 위치 요소 일부 관점을 제공하기 위해, Z = 0 인 평면과 사용자 사이의 거리를 결정
+            https://developer.mozilla.org/ko/docs/Web/CSS/perspective
+            */
         }
         body{
             padding-top:50px;
             background-image:url(./images/galaxy.jpg);
             background-size: cover;
+            /*
+             cover 옵션 : 이미지가 찌그러지지 않는 한도 내에서 제일 크게 설정. 이미지의 가로세로비가 요소와 다르다면 이미지를 세로 또는 가로방향으로 잘라내어 빈 공간이 생기지 않도록 설정합니다.
+             https://developer.mozilla.org/ko/docs/Web/CSS/background-size#cover
+             */
         }
         .wrap{
             postion: relative;
@@ -31,24 +40,40 @@
             text-align: center;
             line-height: 350px;
             position: absolute;
-            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            /*
+             backface-visibility : 뒷면의 가시성
+             https://developer.mozilla.org/ko/docs/Web/CSS/backface-visibility
+             */
         }
         .side-a{
-            background-image: url(https://placeimg.com/250/350/any?1);
+            background-image: url(./images/1.jpeg);
             background-size:cover;
             z-index: 100;
         }
         .side-b{
-            background-image: url(https://placeimg.com/250/350/any?2);
+            background-image: url(./images/2.jpeg);
             background-size:cover;
-            -webkit-transform: rotateY(-180deg);
+            transform: rotateY(-180deg);
         }
         .wrap{
-            transition: -webkit-transform 1s ease-in;
-            -webkit-transform-style: preserve-3d;
+            transition: transform 1s ease-in;
+            transform-style: preserve-3d;
+            /*
+            transition
+            https://developer.mozilla.org/ko/docs/Web/CSS/transition
+            */
+            /*
+            transform-style: preserve-3d 자식 요소를 3d 공간에 배치
+            https://developer.mozilla.org/ko/docs/Web/CSS/transform-style
+            */
         }
         .wrap:hover{
-            -webkit-transform:rotateY(-1turn);
+            transform:rotateY(-1turn);
+            /**
+            transform turn : 각도를 회전의 수로 나타냄
+            https://developer.mozilla.org/ko/docs/Web/CSS/angle
+             */
         }
     </style>
 </head>
